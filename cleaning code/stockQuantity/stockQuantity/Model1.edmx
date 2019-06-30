@@ -1,0 +1,297 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AliFashionModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AvgIntervalShelf">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="itemCode" Type="nchar" MaxLength="20" />
+          <Property Name="shopCode" Type="int" />
+          <Property Name="shlefLife" Type="float" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ItemsShelfLife">
+          <Key>
+            <PropertyRef Name="ItemCode" />
+          </Key>
+          <Property Name="ItemCode" Type="bigint" Nullable="false" />
+          <Property Name="DesignCode" Type="nvarchar" MaxLength="20" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="200" />
+          <Property Name="ClassName" Type="nvarchar" MaxLength="200" />
+          <Property Name="SubClassName" Type="nvarchar" MaxLength="200" />
+          <Property Name="ItemName" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="UnitName" Type="nvarchar" MaxLength="50" />
+          <Property Name="SizeName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ColorName" Type="nvarchar" MaxLength="50" />
+          <Property Name="SourceName" Type="nvarchar" MaxLength="20" />
+          <Property Name="VendorName" Type="varchar" MaxLength="200" />
+          <Property Name="GroupName" Type="nvarchar" MaxLength="50" />
+          <Property Name="TypeName" Type="nvarchar" MaxLength="50" />
+          <Property Name="SalePrice" Type="float" />
+          <Property Name="ShelfLife" Type="float" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AliFashion.dbo.newItemStockTrack' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="newItemStockTrack">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="ItemCode" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ItemCode" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="Date" Type="datetime2" Precision="7" />
+          <Property Name="SaleQty" Type="float" />
+          <Property Name="Discount" Type="float" />
+          <Property Name="SalePrice" Type="float" />
+          <Property Name="ShopOut" Type="int" />
+          <Property Name="ShopIn" Type="int" />
+          <Property Name="SaleExchange" Type="float" />
+          <Property Name="ReturnToShop" Type="float" />
+          <Property Name="ReturnFromShop" Type="float" />
+          <Property Name="TotalReceived" Type="float" />
+          <Property Name="ShopCode" Type="int" />
+          <Property Name="StockQty" Type="float" />
+        </EntityType>
+        <EntityType Name="ShelfLife">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="itemCode" Type="nchar" MaxLength="20" />
+          <Property Name="interval" Type="int" />
+          <Property Name="shopCode" Type="int" />
+          <Property Name="shlefLife" Type="float" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StartDate" Type="datetime2" Precision="7" />
+          <Property Name="EndDate" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="shelfLifeBak">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="itemCode" Type="nchar" MaxLength="20" />
+          <Property Name="interval" Type="int" />
+          <Property Name="shopCode" Type="int" />
+          <Property Name="shlefLife" Type="float" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StartDate" Type="datetime2" Precision="7" />
+          <Property Name="EndDate" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityContainer Name="AliFashionModelStoreContainer">
+          <EntitySet Name="AvgIntervalShelf" EntityType="Self.AvgIntervalShelf" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ItemsShelfLife" EntityType="Self.ItemsShelfLife" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ShelfLife" EntityType="Self.ShelfLife" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="shelfLifeBak" EntityType="Self.shelfLifeBak" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="newItemStockTrack" EntityType="Self.newItemStockTrack" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [newItemStockTrack].[id] AS [id], 
+    [newItemStockTrack].[ItemCode] AS [ItemCode], 
+    [newItemStockTrack].[Date] AS [Date], 
+    [newItemStockTrack].[SaleQty] AS [SaleQty], 
+    [newItemStockTrack].[Discount] AS [Discount], 
+    [newItemStockTrack].[SalePrice] AS [SalePrice], 
+    [newItemStockTrack].[ShopOut] AS [ShopOut], 
+    [newItemStockTrack].[ShopIn] AS [ShopIn], 
+    [newItemStockTrack].[SaleExchange] AS [SaleExchange], 
+    [newItemStockTrack].[ReturnToShop] AS [ReturnToShop], 
+    [newItemStockTrack].[ReturnFromShop] AS [ReturnFromShop], 
+    [newItemStockTrack].[TotalReceived] AS [TotalReceived], 
+    [newItemStockTrack].[ShopCode] AS [ShopCode], 
+    [newItemStockTrack].[StockQty] AS [StockQty]
+    FROM [dbo].[newItemStockTrack] AS [newItemStockTrack]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AliFashionModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ShelfLife">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="itemCode" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="interval" Type="Int32" />
+          <Property Name="shopCode" Type="Int32" />
+          <Property Name="shlefLife" Type="Double" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StartDate" Type="DateTime" Precision="7" />
+          <Property Name="EndDate" Type="DateTime" Precision="7" />
+        </EntityType>
+        <EntityType Name="shelfLifeBak">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="itemCode" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="interval" Type="Int32" />
+          <Property Name="shopCode" Type="Int32" />
+          <Property Name="shlefLife" Type="Double" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StartDate" Type="DateTime" Precision="7" />
+          <Property Name="EndDate" Type="DateTime" Precision="7" />
+        </EntityType>
+        <EntityContainer Name="AliFashionEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ShelfLives" EntityType="Self.ShelfLife" />
+          <EntitySet Name="shelfLifeBaks" EntityType="Self.shelfLifeBak" />
+          <EntitySet Name="newItemStockTracks" EntityType="AliFashionModel.newItemStockTrack" />
+          <EntitySet Name="AvgIntervalShelves" EntityType="AliFashionModel.AvgIntervalShelf" />
+          <EntitySet Name="ItemsShelfLives" EntityType="AliFashionModel.ItemsShelfLife" />
+        </EntityContainer>
+        <EntityType Name="newItemStockTrack">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="ItemCode" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemCode" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="7" />
+          <Property Name="SaleQty" Type="Double" />
+          <Property Name="Discount" Type="Double" />
+          <Property Name="SalePrice" Type="Double" />
+          <Property Name="ShopOut" Type="Int32" />
+          <Property Name="ShopIn" Type="Int32" />
+          <Property Name="SaleExchange" Type="Double" />
+          <Property Name="ReturnToShop" Type="Double" />
+          <Property Name="ReturnFromShop" Type="Double" />
+          <Property Name="TotalReceived" Type="Double" />
+          <Property Name="ShopCode" Type="Int32" />
+          <Property Name="StockQty" Type="Double" />
+        </EntityType>
+        <EntityType Name="AvgIntervalShelf">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="itemCode" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="shopCode" Type="Int32" />
+          <Property Name="shlefLife" Type="Double" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="ItemsShelfLife">
+          <Key>
+            <PropertyRef Name="ItemCode" />
+          </Key>
+          <Property Name="ItemCode" Type="Int64" Nullable="false" />
+          <Property Name="DesignCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CategoryName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ClassName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="SubClassName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ItemName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="UnitName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SizeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ColorName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SourceName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="VendorName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="GroupName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SalePrice" Type="Double" />
+          <Property Name="ShelfLife" Type="Double" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AliFashionModelStoreContainer" CdmEntityContainer="AliFashionEntities1">
+          <EntitySetMapping Name="ShelfLives">
+            <EntityTypeMapping TypeName="AliFashionModel.ShelfLife">
+              <MappingFragment StoreEntitySet="ShelfLife">
+                <ScalarProperty Name="itemCode" ColumnName="itemCode" />
+                <ScalarProperty Name="interval" ColumnName="interval" />
+                <ScalarProperty Name="shopCode" ColumnName="shopCode" />
+                <ScalarProperty Name="shlefLife" ColumnName="shlefLife" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="shelfLifeBaks">
+            <EntityTypeMapping TypeName="AliFashionModel.shelfLifeBak">
+              <MappingFragment StoreEntitySet="shelfLifeBak">
+                <ScalarProperty Name="itemCode" ColumnName="itemCode" />
+                <ScalarProperty Name="interval" ColumnName="interval" />
+                <ScalarProperty Name="shopCode" ColumnName="shopCode" />
+                <ScalarProperty Name="shlefLife" ColumnName="shlefLife" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="newItemStockTracks">
+            <EntityTypeMapping TypeName="AliFashionModel.newItemStockTrack">
+              <MappingFragment StoreEntitySet="newItemStockTrack">
+                <ScalarProperty Name="StockQty" ColumnName="StockQty" />
+                <ScalarProperty Name="ShopCode" ColumnName="ShopCode" />
+                <ScalarProperty Name="TotalReceived" ColumnName="TotalReceived" />
+                <ScalarProperty Name="ReturnFromShop" ColumnName="ReturnFromShop" />
+                <ScalarProperty Name="ReturnToShop" ColumnName="ReturnToShop" />
+                <ScalarProperty Name="SaleExchange" ColumnName="SaleExchange" />
+                <ScalarProperty Name="ShopIn" ColumnName="ShopIn" />
+                <ScalarProperty Name="ShopOut" ColumnName="ShopOut" />
+                <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="SaleQty" ColumnName="SaleQty" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AvgIntervalShelves">
+            <EntityTypeMapping TypeName="AliFashionModel.AvgIntervalShelf">
+              <MappingFragment StoreEntitySet="AvgIntervalShelf">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="shlefLife" ColumnName="shlefLife" />
+                <ScalarProperty Name="shopCode" ColumnName="shopCode" />
+                <ScalarProperty Name="itemCode" ColumnName="itemCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ItemsShelfLives">
+            <EntityTypeMapping TypeName="AliFashionModel.ItemsShelfLife">
+              <MappingFragment StoreEntitySet="ItemsShelfLife">
+                <ScalarProperty Name="ShelfLife" ColumnName="ShelfLife" />
+                <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="VendorName" ColumnName="VendorName" />
+                <ScalarProperty Name="SourceName" ColumnName="SourceName" />
+                <ScalarProperty Name="ColorName" ColumnName="ColorName" />
+                <ScalarProperty Name="SizeName" ColumnName="SizeName" />
+                <ScalarProperty Name="UnitName" ColumnName="UnitName" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="SubClassName" ColumnName="SubClassName" />
+                <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="DesignCode" ColumnName="DesignCode" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

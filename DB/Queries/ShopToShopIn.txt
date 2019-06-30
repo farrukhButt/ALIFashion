@@ -1,0 +1,24 @@
+
+/****** Script for SelectTopNRows command from SSMS  ******/
+SELECT  
+      tblTrans_ShopToShopTransferInDetail.ShopCode
+      ,[StoreCode]
+      ,tblTrans_ShopToShopTransferInDetail.VoucherNo
+      ,[VoucherLineNo]
+      ,[ItemCode]
+      ,[DesignCode]
+      ,[UnitCode]
+      ,[SizeCode]
+      ,[ColorCode]
+      ,[SalePrice]
+      ,[Qty]
+      
+      ,[SourceCode]
+      ,[VendorCode]
+	  ,tblTrans_ShopToShopTransferInHead.VoucherDate
+	  
+	  into ShopToShopInDenorm
+  FROM [AliFashion].[dbo].[tblTrans_ShopToShopTransferInDetail]
+  inner join tblTrans_ShopToShopTransferInHead
+ on tblTrans_ShopToShopTransferInDetail.VoucherNo=tblTrans_ShopToShopTransferInHead.VoucherNo
+ and tblTrans_ShopToShopTransferInDetail.ShopCode=tblTrans_ShopToShopTransferInHead.ShopCode

@@ -1,0 +1,6 @@
+CREATE INDEX DateIndex
+ON ItemStockTrack (Date)
+
+
+CREATE INDEX ItemCodeIndex
+ON ItemStockTrack (ItemCode)

@@ -1,0 +1,15 @@
+select items.ItemCode, DesignCode,category.CategoryName,class.ClassName,subclass.SubClassName,items.ItemName,
+units.UnitName,size.SizeName,color.ColorName,sources.SourceName,vendors.VendorName,groups.GroupName,
+types.TypeName,items.SalePrice
+into ItemsDenorm
+from tblSetup_Items as items
+left join tblSetup_ItemsCategories as category on items.CategoryCode = category.CategoryCode
+left join tblSetup_ItemsClasses as class on items.ClassCode = class.ClassCode
+left join tblSetup_ItemsClassesSub as subclass on items.SubClassCode = subclass.SubClassCode
+left join tblSetup_ItemsUnits as units on items.UnitCode = units.UnitCode
+left join tblSetup_ItemsSizes as size on items.SizeCode = size.SizeCode
+left join tblSetup_ItemsColors as color on items.ColorCode = color.ColorCode
+left join tblSetup_Sources as sources on items.Source = sources.SourceCode
+left join tblSetup_Vendors as vendors on items.VendorCode = vendors.VendorCode
+left join tblSetup_ItemsGroups as groups on items.GroupCode = groups.GroupCode
+left join tblSetup_ItemsTypes as types on items.TypeCode = types.TypeCode

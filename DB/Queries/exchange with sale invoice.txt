@@ -1,0 +1,26 @@
+/****** Script for SelectTopNRows command from SSMS  ******/
+SELECT  TranType
+      ,SaleExchangeDenorm.VoucherNo as originalExchangeVoucher
+      --,SaleExchangeDenorm.VoucherLineNo
+      ,VoucherNoRef,
+	  SaleInvoiceDenorm.VoucherNo as invoiceVoucherNum
+      ,VoucherLineNoRef,
+	  SaleInvoiceDenorm.VoucherLineNo as invoiceVoucherLineNum
+	  
+      ,SaleExchangeDenorm.ItemCode,
+	  	  SaleInvoiceDenorm.ItemCode as inVoiceItemCode	  
+      ,SaleExchangeDenorm.DesignCode  
+      ,SaleExchangeDenorm.xQty
+	  ,SaleInvoiceDenorm.xQty as InvoiceQTY 
+      ,SaleExchangeDenorm.Change
+      ,SaleExchangeDenorm.ShopCode,
+	  SaleInvoiceDenorm.ShopCode as invoiceShop,
+	  SaleExchangeDenorm.voucherDate,
+	  SaleInvoiceDenorm.voucherDate as saleDate
+
+  FROM [AliFashion].[dbo].[SaleExchangeDenorm]
+  left join SaleInvoiceDenorm on
+  SaleExchangeDenorm.VoucherNoRef=SaleInvoiceDenorm.VoucherNo
+  and SaleExchangeDenorm.VoucherLineNoRef=SaleInvoiceDenorm.VoucherLineNo
+  and SaleExchangeDenorm.ShopCode=SaleInvoiceDenorm.ShopCode
+  where TranType='E'

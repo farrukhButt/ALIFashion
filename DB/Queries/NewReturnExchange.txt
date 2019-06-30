@@ -1,0 +1,12 @@
+SELECT  TranType
+      ,SaleExchangeDenorm.VoucherNo as originalExchangeVoucher
+      ,SaleExchangeDenorm.VoucherLineNo      
+      ,SaleExchangeDenorm.ItemCode  	  
+      ,SaleExchangeDenorm.xQty	  
+      ,SaleExchangeDenorm.ShopCode,
+	  SaleExchangeDenorm.voucherDate
+	  into NewReturnExchange
+  FROM [AliFashion].[dbo].[SaleExchangeDenorm]  
+  where TranType='R'
+
+

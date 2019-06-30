@@ -1,0 +1,26 @@
+c:\users\farrukh\documents\visual studio 2015\Projects\AliFashion\AliFashion\bin\Debug\AliFashion.exe.config
+c:\users\farrukh\documents\visual studio 2015\Projects\AliFashion\AliFashion\bin\Debug\AliFashion.exe
+c:\users\farrukh\documents\visual studio 2015\Projects\AliFashion\AliFashion\bin\Debug\AliFashion.pdb
+c:\users\farrukh\documents\visual studio 2015\Projects\AliFashion\AliFashion\obj\Debug\AliFashion.csprojResolveAssemblyReference.cache
+c:\users\farrukh\documents\visual studio 2015\Projects\AliFashion\AliFashion\obj\Debug\AliFashion.Form1.resources
+c:\users\farrukh\documents\visual studio 2015\Projects\AliFashion\AliFashion\obj\Debug\AliFashion.Properties.Resources.resources
+c:\users\farrukh\documents\visual studio 2015\Projects\AliFashion\AliFashion\obj\Debug\AliFashion.csproj.GenerateResource.Cache
+c:\users\farrukh\documents\visual studio 2015\Projects\AliFashion\AliFashion\obj\Debug\AliFashion.exe
+c:\users\farrukh\documents\visual studio 2015\Projects\AliFashion\AliFashion\obj\Debug\AliFashion.pdb
+c:\users\farrukh\documents\visual studio 2015\Projects\AliFashion\AliFashion\bin\Debug\Newtonsoft.Json.dll
+c:\users\farrukh\documents\visual studio 2015\Projects\AliFashion\AliFashion\bin\Debug\Newtonsoft.Json.pdb
+c:\users\farrukh\documents\visual studio 2015\Projects\AliFashion\AliFashion\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Ahmad\Desktop\AliFashion\AliFashion\bin\Debug\AliFashion.exe.config
+C:\Users\Ahmad\Desktop\AliFashion\AliFashion\bin\Debug\AliFashion.exe
+C:\Users\Ahmad\Desktop\AliFashion\AliFashion\bin\Debug\AliFashion.pdb
+C:\Users\Ahmad\Desktop\AliFashion\AliFashion\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Ahmad\Desktop\AliFashion\AliFashion\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\Ahmad\Desktop\AliFashion\AliFashion\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Ahmad\Desktop\AliFashion\AliFashion\obj\Debug\AliFashion.Form1.resources
+C:\Users\Ahmad\Desktop\AliFashion\AliFashion\obj\Debug\AliFashion.Properties.Resources.resources
+C:\Users\Ahmad\Desktop\AliFashion\AliFashion\obj\Debug\AliFashion.csproj.GenerateResource.cache
+C:\Users\Ahmad\Desktop\AliFashion\AliFashion\obj\Debug\AliFashion.csproj.CoreCompileInputs.cache
+C:\Users\Ahmad\Desktop\AliFashion\AliFashion\obj\Debug\AliFashion.csproj.CopyComplete
+C:\Users\Ahmad\Desktop\AliFashion\AliFashion\obj\Debug\AliFashion.exe
+C:\Users\Ahmad\Desktop\AliFashion\AliFashion\obj\Debug\AliFashion.pdb
+C:\Users\Ahmad\Desktop\AliFashion\AliFashion\obj\Debug\AliFashion.csprojAssemblyReference.cache

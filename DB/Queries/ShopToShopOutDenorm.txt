@@ -1,0 +1,23 @@
+
+SELECT  tblTrans_ShopToShopTransferOutDetail.ShopCodeFrom
+      ,tblTrans_ShopToShopTransferOutDetail.ShopCode
+      ,[StoreCode]
+      ,tblTrans_ShopToShopTransferOutDetail.VoucherNo
+      ,[VoucherLineNo]
+      ,[ItemCode]
+      ,[DesignCode]
+      ,[UnitCode]
+      ,[SizeCode]
+      ,[ColorCode]
+      ,[SalePrice]
+      ,[Qty]
+      ,[QtyCleared]
+      ,[xQty]
+      ,[SourceCode]
+      ,[VendorCode]
+	  ,tblTrans_ShopToShopTransferOutHead.VoucherDate
+	  into shopToShopOutDenorm
+  FROM [AliFashion].[dbo].[tblTrans_ShopToShopTransferOutDetail]
+  inner join tblTrans_ShopToShopTransferOutHead
+ on tblTrans_ShopToShopTransferOutDetail.VoucherNo=tblTrans_ShopToShopTransferOutHead.VoucherNo
+ and tblTrans_ShopToShopTransferOutDetail.ShopCode=tblTrans_ShopToShopTransferOutHead.ShopCode

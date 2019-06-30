@@ -1,0 +1,36 @@
+/****** Script for SelectTopNRows command from SSMS  ******/
+SELECT tblTrans_SaleInvoiceDetail.RefVoucherNo
+      ,[RefVoucherLineNo]
+      ,[StoreCode]
+      ,tblTrans_SaleInvoiceDetail.VoucherNo
+      ,[VoucherLineNo]
+      ,[ItemCode]
+      ,[DesignCode]
+      ,[UnitCode]
+      ,[SizeCode]
+      ,[ColorCode]
+      ,[SalePrice]
+      ,[Qty]
+      ,[QtyCleared]
+      ,[xQty]
+      ,[QtyDiscount]
+      ,[GrossAmount]
+      ,[DiscountPer]
+      ,[NetAmount]
+      ,[GlobalDiscount]
+      ,[TotalNetAmount]
+      ,[ReceiptTotalCash]
+      ,[ReceiptTotalCredit]
+      ,[Change]
+      ,tblTrans_SaleInvoiceDetail.ShopCode
+      ,[SourceCode]
+      ,[VendorCode]
+	  ,VoucherDate
+	  into SaleInvoiceDenorm
+  FROM [AliFashion].[dbo].[tblTrans_SaleInvoiceDetail]
+  inner join tblTrans_SaleInvoiceHead
+  on tblTrans_SaleInvoiceDetail.VoucherNo=tblTrans_SaleInvoiceHead.VoucherNo
+  and tblTrans_SaleInvoiceDetail.ShopCode=tblTrans_SaleInvoiceHead.ShopCode
+
+
+  

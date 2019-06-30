@@ -1,0 +1,16 @@
+/****** Script for SelectTopNRows command from SSMS  ******/
+SELECT  TranType
+      ,SaleExchangeDenorm.VoucherNo as originalExchangeVoucher
+      ,SaleExchangeDenorm.VoucherLineNo
+     
+	  
+      ,SaleExchangeDenorm.ItemCode,
+	  SaleExchangeDenorm.xQty
+	  ,SaleExchangeDenorm.ShopCode,
+	 
+	  SaleExchangeDenorm.voucherDate
+
+	 into NewExchangeSale
+
+  FROM [AliFashion].[dbo].[SaleExchangeDenorm]  
+  where TranType='E'

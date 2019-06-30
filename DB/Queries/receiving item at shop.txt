@@ -1,0 +1,27 @@
+// query for receiving item at shop. Head and Detail merged  
+
+
+SELECT
+tblTrans_ReceiveAtShopDetail.ShopCode
+      ,tblTrans_ReceiveAtShopDetail.StoreCode
+      ,[VoucherNoRef]
+      ,[VoucherLineNoRef]
+      ,tblTrans_ReceiveAtShopDetail.VoucherNo
+      ,[VoucherLineNo]
+      ,[ItemCode]
+      ,[DesignCode]
+      ,[UnitCode]
+      ,[SizeCode]
+      ,[ColorCode]
+      ,[SalePrice]
+      ,[QtyDis]
+      ,[Qty]
+      ,[SourceCode]
+      ,[VendorCode]
+	  ,VoucherDate,
+	  Remarks
+into ReceiveAtShopDenorm
+  FROM [AliFashion].[dbo].[tblTrans_ReceiveAtShopDetail]
+  inner join tblTrans_ReceiveAtShopHead
+  on tblTrans_ReceiveAtShopDetail.VoucherNo=tblTrans_ReceiveAtShopHead.VoucherNo
+  and tblTrans_ReceiveAtShopDetail.ShopCode=tblTrans_ReceiveAtShopHead.ShopCode

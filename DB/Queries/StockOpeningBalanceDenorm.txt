@@ -1,0 +1,18 @@
+/****** Script for SelectTopNRows command from SSMS  ******/
+SELECT tblTrans_StockOpeningBalanceDetail.StoreCode
+      ,tblTrans_StockOpeningBalanceDetail.VoucherNo
+      ,[VoucherLineNo]
+      ,[ItemCode]
+      ,[DesignCode]
+      ,[UnitCode]
+      ,[SizeCode]
+      ,[ColorCode]
+      ,[Qty]
+      ,[CostPrice]
+      ,[Amount]
+	  , VoucherDate
+	  into StockOpeningBalanceDenorm
+  FROM [AliFashion].[dbo].[tblTrans_StockOpeningBalanceDetail]
+  inner join tblTrans_StockOpeningBalanceHead
+  on tblTrans_StockOpeningBalanceDetail.VoucherNo=tblTrans_StockOpeningBalanceHead.VoucherNo
+  and tblTrans_StockOpeningBalanceDetail.StoreCode=tblTrans_StockOpeningBalanceHead.StoreCode
